@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: #a9d7d1;  font-family: Roboto; text-align: center;}
+h1   {color: black; }
+.frame{ border: 1px; 
+        background-color: snow;
+        border-radius: 20px 20px 0px 0px;
+        padding: 50px;
+      } 
+
+</style>
+</head>
+<body>
+
+<h1> Survey Form </h1>
+
+
+<form class="frame" method="get" action="">
+    <p> Let us know how we can improve freeCodeCamp </p>
+    
+    <p>
+      <label for="name">* Name: </label>
+      <input id="name"  placeholder="Enter your Name" ><br><br>
+      <label for="email">* Email: </label>
+      <input id="email" type="email" placeholder="Enter your Email" ><br><br>
+      <label for="age">* Age: </label>
+      <input id="age" type="age" placeholder="Age" >
+   </p>
+    
+    <p> 
+      <label for="profession">Wich option best describes your current role?</label>
+      <select id="profession">
+        <option value="S" name="profession">Student</option>
+        <option value="U" name="profession">Unemployed</option>
+      </select>
+    </p>
+    
+    
+    <p>
+        How likely is that you would recommand freeCampCode to a friend? :<br>
+        <input type="radio" name="recommandation" value="definitly" id="definitly"> <label for="definitly">definitly</label><br>
+        <input type="radio" name="recommandation" value="maybe" id="maybe"> <label for="maybe">Maybe</label><br>
+        <input type="radio" name="recommandation" value="notsure" id="notsure"> <label for="notsure">Not sure</label>
+    </p>
+    
+    
+    
+    <p>
+       <label for="fcc">What do you like most in FCC?</label>
+       <select id="fcc" >
+         <option value="R" name="fcc">select an option</option>
+         <option value="H" name="fcc">++++++</option>
+       </select>
+    </p>
+    
+    <p>
+        Things that should be improved in the future (Check all that aplly):<br>
+        <input type="checkbox" name="frontendprojects" id="frontendprojects" checked> <label for="frontendprojects">Front-end Projects</label><br>
+        <input type="checkbox" name="backendProjects" id="backendProjects" checked> <label for="backendProjects">Back-end Projects</label><br>
+        <input type="checkbox" name="datavisualization" id="datavisualization"> <label for="datavisualization">Data visualization</label><br>
+        
+    </p>
+    
+    
+</form>
+
+
+</body>
+</html>
+
