@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {font-family: Roboto; text-align: center;}
+
+div {
+  box-sizing: border-box;
+  width: 100%;
+}
+@media only screen and (min-width: 640px) and (max-width: 1500px) {
+
+.flex-container{ 
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            flex-wrap: wrap;
+            align-content: center; 
+          } 
+.flexbox-item{
+             flex: 1 1 auto ; 
+
+}
+
+.flexbox-item1{
+            
+                background-color: red ;
+                width: 1300px;
+                height: 100px;
+
+
+}
+
+.flexbox-item2{
+                
+                background-color: green ;
+                width: 250px;
+                height: 500px; 
+}
+
+.flexbox-item3{
+                
+                background-color: blue ;
+                width: 800px;
+                height: 500px;  
+}
+
+.flexbox-item4{
+                
+                background-color: violet ;
+                width: 250px;
+                height: 500px;
+}
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="flex-container">
+<div class="flexbox-item flexbox-item1"> Element 1 </div>
+<div class="flexbox-item flexbox-item2"> Element 2 </div>
+<div class="flexbox-item flexbox-item3"> Element 3 </div>
+<div class="flexbox-item flexbox-item4"> Element 4 </div>
+</div>
+
+
+</body>
+</html>
