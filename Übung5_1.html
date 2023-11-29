@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    
+      <head>
+   <style>
+      h2 span {
+      display: none;
+      }
+   </style>
+   </head>
+<body>
+   <h2>
+      Sub Div
+      <span>I am hidden</span>
+   </h2>
+
+   <script>
+       
+       const heading = document.querySelector('h2');
+
+       const t0= performance.now();
+
+       console.log(heading.innerHTML);
+       const t1= performance.now();
+       console.log(`innerHTML took ${t1 - t0} milliseconds.`);
+
+       console.log(heading.innerText);
+       const t2= performance.now();
+       console.log(`innerText took ${t2 - t0} milliseconds.`);
+
+       console.log(heading.textContent);
+       const t3= performance.now();
+       console.log(`textContent took ${t3 - t0} milliseconds.`);
+
+       console.log(heading.outerHTML);
+       const t4= performance.now();
+       console.log(`outerHTML took ${t4 - t0} milliseconds.`);
+
+   </script>
+
+</body>
+
+</html>
