@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <title> Klammerpaare </title>
+
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="inputString"> Geben Sie Ihre Zeichenkette ein: </label>
+    <input type="text" id="inputString" oninput="checkBracketNesting(this.value)">
+
+    <script>
+        function checkBracketNesting(input) {
+            // Use a stack to keep track of open brackets
+            const stack = [];
+            
+            // Regular expression to match brackets
+            const bracketRegex = /[\[\](){}]/g;
+
+            // Iterate through each bracket in the input
+            input.match(bracketRegex)?.forEach((bracket) => {
+                if (bracket === '[' || bracket === '(' || bracket === '{') {
+                    // Push open brackets onto the stack
+                    stack.push(bracket);
+                } else {
+                    // Pop the last open bracket from the stack
+                    const lastOpenBracket = stack.pop();
+
+                    // Check if the current closing bracket matches the last open bracket
+                    console.assert(
+                        (lastOpenBracket === '[' && bracket === ']') ||
+                        (lastOpenBracket === '(' && bracket === ')') ||
+                        (lastOpenBracket === '{' && bracket === '}'),
+                        'Klammerverschachtelungsfehler'
+                    );
+                }
+            });
+
+            // If the stack is not empty, there are unmatched open brackets
+            console.assert(stack.length === 0, 'Unübertroffene offene Klammern');
+
+            // Update the styling of the input field based on the console.assert statements
+            const inputField = document.getElementById('inputString');
+            if (stack.length > 0) {
+                inputField.classList.add('error');
+            } else {
+                inputField.classList.remove('error');
+            }
+        }
+    </script>
+
+</body>
+</html>

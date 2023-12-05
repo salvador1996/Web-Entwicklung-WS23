@@ -1,0 +1,21 @@
+const deepCopy = (struct) => 
+  Array.isArray(struct)
+    ? struct.map(element => deepCopy(element))
+    : struct !== null && typeof struct === 'object'
+      ? Object.fromEntries(Object.entries(struct).map(([key, value]) => [key, deepCopy(value)]))
+      : struct;
+
+// Test cases
+const originalStruct = {
+  a: 1,
+  b: [2, 3, { c: 4 }],
+  d: { e: { f: 5 } }
+};
+
+const copiedStruct = deepCopy(originalStruct);
+
+console.assert(copiedStruct !== originalStruct, 'Objects should not reference the same memory address');
+console.assert(copiedStruct.b !== originalStruct.b, 'Arrays should not reference the same memory address');
+console.assert(copiedStruct.d.e !== originalStruct.d.e, 'Nested objects should not reference the same memory address');
+console.assert(copiedStruct.b[2] !== originalStruct.b[2], 'Nested arrays should not reference the same memory address');
+console.assert(JSON.stringify(copiedStruct) === JSON.stringify(originalStruct), 'Deep copy should be equal to the original object');
