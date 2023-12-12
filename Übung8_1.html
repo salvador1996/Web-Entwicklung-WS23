@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title> Promises (Promise-API) </title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        function fetchTextFile(url) {
+            return new Promise((resolve, reject) => {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch ${url}`);
+                        }
+                        return response.text();
+                    })
+                    .then(text => resolve(text))
+                    .catch(error => reject(error));
+            });
+        }
+
+        function concatenateLines(fileALines, fileBLines) {
+            const maxLength = Math.max(fileALines.length, fileBLines.length);
+            const concatenatedLines = [];
+
+            for (let i = 0; i < maxLength; i++) {
+                const lineA = fileALines[i] || '';
+                const lineB = fileBLines[i] || '';
+                concatenatedLines.push(`${lineA}${lineB}`);
+            }
+
+            return concatenatedLines;
+        }
+
+        const urlA = 'https://github.com/salvador1996/Web-Entwicklung-WS23/blob/main/A.txt';
+        const urlB = 'https://github.com/salvador1996/Web-Entwicklung-WS23/blob/main/B.txt';
+
+        const promiseA = fetchTextFile(urlA);
+        const promiseB = fetchTextFile(urlB);
+
+        Promise.all([promiseA, promiseB])
+            .then(([textA, textB]) => {
+                const fileALines = textA.split('\n');
+                const fileBLines = textB.split('\n');
+                const resultLines = concatenateLines(fileALines, fileBLines);
+
+                const outputElement = document.getElementById('output');
+                resultLines.forEach(line => {
+                    const lineElement = document.createElement('p');
+                    lineElement.textContent = line;
+                    outputElement.appendChild(lineElement);
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
