@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title> Async/await </title>
+
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        async function fetchTextFile(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}`);
+            }
+            return await response.text();
+        }
+
+        function concatenateLines(fileALines, fileBLines) {
+            const maxLength = Math.max(fileALines.length, fileBLines.length);
+            const concatenatedLines = [];
+
+            for (let i = 0; i < maxLength; i++) {
+                const lineA = fileALines[i] || '';
+                const lineB = fileBLines[i] || '';
+                concatenatedLines.push(`${lineA}${lineB}`);
+            }
+
+            return concatenatedLines;
+        }
+
+        async function loadData() {
+            const urlA = 'https://github.com/salvador1996/Web-Entwicklung-WS23/blob/main/A.txt';
+            const urlB = 'https://github.com/salvador1996/Web-Entwicklung-WS23/blob/main/B.txt';
+
+            try {
+                const textA = await fetchTextFile(urlA);
+                const textB = await fetchTextFile(urlB);
+
+                const fileALines = textA.split('\n');
+                const fileBLines = textB.split('\n');
+                const resultLines = concatenateLines(fileALines, fileBLines);
+
+                const outputElement = document.getElementById('output');
+                resultLines.forEach(line => {
+                    const lineElement = document.createElement('p');
+                    lineElement.textContent = line;
+                    outputElement.appendChild(lineElement);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        loadData();
+    </script>
+</body>
+</html>
