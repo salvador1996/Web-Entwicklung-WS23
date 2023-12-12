@@ -1,0 +1,26 @@
+Was sind Mobilfunknetze?
+
+Die Mobilfunknetze bezeichnen die für die Kommunikation zwischen Mobiltelefonen erforderliche technische Infrastruktur. 
+Erst die Handynetze ermöglichen es überhaupt, ein Gespräch oder einen Datentransfer zwischen zwei mobilen Endgeräten herstellen zu können.
+Die eigentliche Übertragung teilt sich dabei in zwei Bereiche auf. 
+Zum einen besteht eine Funkverbindung zwischen dem jeweiligen Mobilfunkgerät und dem nächstgelegenen Sendemast. 
+Zum anderen erfolgt eine kabelgebundene Übertragung zwischen den Netzzugängen, auf die Gesprächsteilnehmende zugreifen.
+Wenn eine Person aus München beispielsweise jemanden in Hamburg anrufen möchte, so wird nur die kurze Strecke zwischen ihrem Handy und dem Sendemast per Funk übermittelt. 
+Die restliche Gesprächsübertragung erfolgt per Kabel über die beiden Netzzugänge und funktioniert im Wesentlichen wie bei einem normalen Festnetztelefon.
+
+
+Die Geschichte des Mobilfunks
+
+
+In seiner Entwicklung hat das heutige Mobilfunknetz mehrere Stufen durchlaufen. Als erstes Mobilfunksystem gilt das analoge A-Netz, das zwischen 1958 und 1977 in Betrieb war 
+und von der Deutschen Bundespost unter dem Namen "öffentlich beweglicher Landfunkdienst (öbL)" eingeführt wurde. 
+
+Das A-Netz erreichte 1971 seine Kapazitätsgrenze von 11.000 Teilnehmenden 
+und wurde im Folgejahr vom B-Netz abgelöst.Ähnlich wie beim A-Netz war das Hauptproblem des Nachfolgenetzes, dass die anrufende Person immer wissen musste, wo sich die gewünschte 
+Gesprächsteilnehmerin beziehungsweise der Gesprächsteilnehmer befand. Die oder der Anrufende musste damals nämlich immer die Vorwahl der Funkstation wählen, in dessen Nähe sich die 
+entsprechende Partei befand. 
+
+Bewegte sich die Person während des Gespräches aus dem gewählten Funkbereich heraus, wurde die Verbindung abgebrochen und musste neu aufgebaut werden. 
+Die vollständige Netzauslastung des B-Netzes wurde 1986 mit insgesamt 27.000 Teilnehmenden erreicht.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------END A.txt ||   
