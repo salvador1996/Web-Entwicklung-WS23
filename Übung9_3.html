@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Spiel Tic-Tac-Toe </title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    svg {
+      border: 1px solid #333;
+    }
+
+    .cell {
+      fill: #fff;
+      stroke: #333;
+      stroke-width: 2;
+    }
+
+    .cell:hover {
+      fill: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .text {
+      font-family: Arial, sans-serif;
+      font-size: 30px;
+      fill: #333;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<svg width="300" height="300" id="ticTacToe">
+  <!-- Cells -->
+  <rect class="cell" x="0" y="0" width="100" height="100" data-index="0" />
+  <rect class="cell" x="100" y="0" width="100" height="100" data-index="1" />
+  <rect class="cell" x="200" y="0" width="100" height="100" data-index="2" />
+
+  <rect class="cell" x="0" y="100" width="100" height="100" data-index="3" />
+  <rect class="cell" x="100" y="100" width="100" height="100" data-index="4" />
+  <rect class="cell" x="200" y="100" width="100" height="100" data-index="5" />
+
+  <rect class="cell" x="0" y="200" width="100" height="100" data-index="6" />
+  <rect class="cell" x="100" y="200" width="100" height="100" data-index="7" />
+  <rect class="cell" x="200" y="200" width="100" height="100" data-index="8" />
+
+  <!-- Text -->
+  <text class="text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" id="resultText"></text>
+</svg>
+
+<script>
+  const ticTacToe = document.getElementById('ticTacToe');
+  const cells = document.querySelectorAll('.cell');
+  const resultText = document.getElementById('resultText');
+
+  let currentPlayer = 'X';
+  let board = ['', '', '', '', '', '', '', '', ''];
+  let gameActive = true;
+
+  function checkWinner() {
+    const winningCombinations = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+      [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    for (const combination of winningCombinations) {
+      const [a, b, c] = combination;
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        return board[a];
+      }
+    }
+
+    return null;
+  }
+
+  function checkDraw() {
+    return !board.includes('');
+  }
+
+  function handleClick(index) {
+    if (!gameActive || board[index] !== '') return;
+
+    board[index] = currentPlayer;
+    drawBoard();
+    
+    const winner = checkWinner();
+    if (winner) {
+      resultText.textContent = `${winner} wins!`;
+      gameActive = false;
+    } else if (checkDraw()) {
+      resultText.textContent = 'It\'s a draw!';
+      gameActive = false;
+    } else {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+  }
+
+  function drawBoard() {
+    board.forEach((value, index) => {
+      cells[index].textContent = value;
+    });
+  }
+
+  cells.forEach((cell, index) => {
+    cell.addEventListener('click', () => handleClick(index));
+  });
+</script>
+
+</body>
+</html>
